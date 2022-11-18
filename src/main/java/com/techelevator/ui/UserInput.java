@@ -11,7 +11,14 @@ import java.util.Scanner;
  * Dependencies: None
  */
 public class UserInput {
+    private String lastInsertedMoney = "0";
     private Scanner scanner = new Scanner(System.in);
+
+    Audit audit = new Audit();
+
+    public String getLastInsertedMoney() {
+        return this.lastInsertedMoney;
+    }
 
     public String getHomeScreenOption() {
         System.out.println("What would you like to do?");
@@ -46,7 +53,6 @@ public class UserInput {
         System.out.println("M) Feed Money");
         System.out.println("S) Select Item");
         System.out.println("F) Finish Transaction");
-        System.out.println("E) Exit");
 
         System.out.println();
         System.out.print("Please select an option: ");
@@ -61,9 +67,7 @@ public class UserInput {
 
         } else if (purchaseOption.equals("F")) {
             return "finish";
-        } else if (purchaseOption.equals("E")) {
-            return "exit";
-        } else {
+        }else {
             return "";
         }
 
@@ -71,13 +75,13 @@ public class UserInput {
 
     public BigDecimal insertedMoneyChoice() {
         System.out.println("Feed Money(1,5,10,20 only):  ");
-        BigDecimal moneyFed = new BigDecimal(scanner.nextLine()).setScale(2);
+        this.lastInsertedMoney = scanner.nextLine();
+        BigDecimal moneyFed = new BigDecimal(this.lastInsertedMoney).setScale(2);
         BigDecimal one = BigDecimal.ONE.setScale(2);
         BigDecimal five = new BigDecimal("5.00").setScale(2);
         BigDecimal ten = BigDecimal.TEN.setScale(2);
         BigDecimal twenty = new BigDecimal("20.00").setScale(2);
         if (moneyFed.equals(one) || moneyFed.equals(five) || moneyFed.equals(ten) || moneyFed.equals(twenty)) {
-            System.out.println("Success" + moneyFed.doubleValue());
             return moneyFed;
         } else {
             System.out.println("Please enter a valid bill");
