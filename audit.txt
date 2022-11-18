@@ -1,1 +1,9 @@
-Audit Log for Transactions Starting at: 11/18/22 02:51 PMAudit Log for Transactions Starting at: 11/18/22 03:10 PMAudit Log for Transactions Starting at: 11/18/22 03:11 PM
+Audit Log for Transactions Starting at: 11/18/22 02:51 PMAudit Log for Transactions Starting at: 11/18/22 03:10 PMAudit Log for Transactions Starting at: 11/18/22 03:11 PMAudit Log for Transactions Starting at: 11/18/22 03:20 PM
+11/18/2022 03:20:40 PM 	MONEY FED:                  $10.00	$10.00
+11/18/2022 03:20:43 PM 	MONEY FED:                  $10.00	$20.00
+11/18/2022 03:20:45 PM 	U-Chews                 A1  $20.00	$18.35
+11/18/2022 03:20:46 PM 	Stackers                A2  $18.35	$16.70
+11/18/2022 03:20:47 PM 	CHANGE GIVEN:               $16.70	$0.00
+Audit Log for Transactions Starting at: 11/18/22 03:21 PM
+Audit Log for Transactions Starting at: 11/18/22 03:21 PM
+

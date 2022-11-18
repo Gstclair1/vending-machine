@@ -35,7 +35,7 @@ public class VendingMachine {
         if (auditClear.exists()){
             try {
             PrintWriter clear = new PrintWriter( new FileOutputStream(auditClear, true));
-                clear.print("Audit Log for Transactions Starting at: " + localDateTime.format(dateTimeFormat));
+                clear.println("Audit Log for Transactions Starting at: " + localDateTime.format(dateTimeFormat) + "\n");
                 clear.flush();
                 clear.close();
             } catch (FileNotFoundException e) {
