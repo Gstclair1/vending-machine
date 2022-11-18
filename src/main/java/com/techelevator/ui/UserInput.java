@@ -40,6 +40,8 @@ public class UserInput {
             return "purchase";
         } else if (option.equals("E")) {
             return "exit";
+        } else if(option.equals("S")) {
+            return "sales report";
         } else {
             return "";
         }
@@ -75,8 +77,9 @@ public class UserInput {
 
     public BigDecimal insertedMoneyChoice() {
         System.out.println("Feed Money(1,5,10,20 only):  ");
-        this.lastInsertedMoney = scanner.nextLine();
-        BigDecimal moneyFed = new BigDecimal(this.lastInsertedMoney).setScale(2);
+        String insertedMoney = scanner.nextLine();
+        BigDecimal moneyFed = new BigDecimal(insertedMoney).setScale(2);
+        this.lastInsertedMoney = String.valueOf(moneyFed);
         BigDecimal one = BigDecimal.ONE.setScale(2);
         BigDecimal five = new BigDecimal("5.00").setScale(2);
         BigDecimal ten = BigDecimal.TEN.setScale(2);

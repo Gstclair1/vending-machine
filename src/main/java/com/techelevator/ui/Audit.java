@@ -10,13 +10,13 @@ import java.util.Scanner;
 public class Audit {
     private List<String[]> auditList = new ArrayList<>();
 
-    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
+    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(String.format("MM/dd/yyyy hh:mm:ss a \t"));
 
     public String getTypeOfTransaction(String type){
         if (type.equalsIgnoreCase("money fed")){
-            return "MONEY FED:";
+            return String.format("MONEY FED: \t");
         } else if (type.equalsIgnoreCase("change given")){
-            return "CHANGE GIVEN:";
+            return String.format("CHANGE GIVEN: \t");
         } else {
             return type;
         }
@@ -46,6 +46,7 @@ public class Audit {
             printWriter.print("\n");
             printWriter.flush();
             printWriter.close();
+
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }

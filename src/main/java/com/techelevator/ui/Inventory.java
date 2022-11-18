@@ -22,7 +22,7 @@ public class Inventory {
 
 
     public BigDecimal getMoneyFed() {
-        return moneyFed;
+        return this.moneyFed;
     }
 
     public void addMoney(BigDecimal insertedMoney) {
@@ -147,25 +147,29 @@ public class Inventory {
 
      // TODO: Possibly create class/interface
     public String getChange(){
+
+        double convertedAmt = this.moneyFed.doubleValue() * 100.0;
+        int convertedAmtInt = (int) convertedAmt;
+
         BigDecimal changeDue = this.moneyFed;
         int countDollars = 0;
         int countQuarters = 0;
         int countDimes = 0;
         int countNickles = 0;
-        while (this.moneyFed.compareTo(BigDecimal.ONE) != -1){
-            this.subtractMoney(BigDecimal.ONE);
+        while (convertedAmtInt >= 100){
+            convertedAmtInt -= 100;
             countDollars += 1;
         }
-        while (this.moneyFed.compareTo(new BigDecimal("0.25"))!= -1){
-            this.subtractMoney((new BigDecimal("0.25")));
+        while (convertedAmtInt >= 25){
+            convertedAmtInt -= 25;
             countQuarters += 1;
         }
-        while (this.moneyFed.compareTo(new BigDecimal("0.10")) != -1 ){
-            this.subtractMoney(new BigDecimal("0.10"));
+        while (convertedAmtInt >= 10){
+            convertedAmtInt -= 10;
             countDimes += 1;
         }
-        while (this.moneyFed.compareTo(new BigDecimal("0.05")) != -1){
-            this.subtractMoney(new BigDecimal("0.05"));
+        while (convertedAmtInt >= 5){
+            convertedAmtInt -= 5;
             countNickles += 1;
         }
 

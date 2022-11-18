@@ -1,9 +1,6 @@
 package com.techelevator.application;
 
-import com.techelevator.ui.Audit;
-import com.techelevator.ui.Inventory;
-import com.techelevator.ui.UserInput;
-import com.techelevator.ui.UserOutput;
+import com.techelevator.ui.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,6 +16,7 @@ public class VendingMachine {
         UserInput userInput = new UserInput();
         Inventory inventory = new Inventory();
         Audit audit = new Audit();
+        SalesReport salesReport = new SalesReport();
 
         List<String[]> vendingItems = new ArrayList<>();
 
@@ -29,6 +27,7 @@ public class VendingMachine {
                 inventoryItem += ",6";
                 String[] displayArray = inventoryItem.split(",");
                 vendingItems.add(displayArray);
+                salesReport.addToList(displayArray);
             }
 
         } catch (FileNotFoundException e) {
@@ -66,7 +65,13 @@ public class VendingMachine {
                         try {
                             BigDecimal itemCost = new BigDecimal(userSelectedVendingItem[2]);
                             if (inventory.getMoneyFed().compareTo(itemCost) != -1 || (inventory.checkBogodo() && inventory.getMoneyFed().compareTo(itemCost.subtract(BigDecimal.ONE)) != -1 )) {
+                                if (!inventory.checkBogodo()) {
+                                    audit.addToAuditList(userSelectedVendingItem[1], String.valueOf(inventory.getMoneyFed()), String.valueOf(inventory.getMoneyFed().subtract(new BigDecimal(userSelectedVendingItem[2]))), userSelectedItem);
+                                } else  {
+                                    audit.addToAuditList(userSelectedVendingItem[1], String.valueOf(inventory.getMoneyFed()), String.valueOf(inventory.getMoneyFed().subtract(new BigDecimal(userSelectedVendingItem[2]).subtract(BigDecimal.ONE))), userSelectedItem);
+                                }
                                 System.out.println("Here is your: " + userSelectedVendingItem[1]);
+                                salesReport.editItem(userSelectedVendingItem[1], inventory.checkBogodo());
                                 System.out.println(inventory.getMessage(userSelectedItem));
                                 inventory.reverseIsBogodo();
                                 int stockLeft = inventory.decreasedStockLevel(userSelectedItem);
@@ -80,13 +85,17 @@ public class VendingMachine {
                             System.out.println("Item out of stock. Try again");
                         }
                     } else if (purchaseChoice.equalsIgnoreCase("finish")){
-
+                        audit.addToAuditList("change given", String.valueOf(inventory.getMoneyFed()), "0.00", "");
                         System.out.println("Here is you change: $" + inventory.getMoneyFed());
                         System.out.println(inventory.getChange());
+                        inventory.subtractMoney(inventory.getMoneyFed());
+
                         keepAddingMoney = false;
                     }
                 }
-                } else if (choice.equals("exit")) {
+                } else if (choice.equals("sales report")) {
+                salesReport.callSalesReport();
+            } else if (choice.equals("exit")) {
                     // good bye
                     break;
                 }
