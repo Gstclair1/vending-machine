@@ -10,6 +10,11 @@ public class Inventory {
     private List<String[]> vendingItems = new ArrayList<>();
     private BigDecimal moneyFed = new BigDecimal(0.0).setScale(2);
     private boolean isBogodo = false;
+    private final int ZERO = 0;
+    private final int FIVE = 5;
+    private final int TEN = 10;
+    private final int TWENTY_FIVE = 25;
+    private final int HUNDRED = 100;
 
 
     public List<String[]> getVendingItems() {
@@ -59,7 +64,7 @@ public class Inventory {
 
     public String displayVending() {
         String vendingDisplay = "";
-        int count = 0;
+        int count = ZERO;
         for (String[] eachArray : getVendingItems()) {
             if (!eachArray[2].equalsIgnoreCase("Out of Stock")) {
                 vendingDisplay += eachArray[0] + " " + eachArray[1] + " $" + eachArray[2] + "   |   ";
@@ -67,7 +72,7 @@ public class Inventory {
                 vendingDisplay += eachArray[0] + " " + eachArray[1] + " " + eachArray[2] + "   |   ";
             }
             count += 1;
-            if (count % 4 == 0) {
+            if (count % 4 == ZERO) {
                 vendingDisplay+="\n";
             }
 
@@ -86,13 +91,13 @@ public class Inventory {
 
     public int decreasedStockLevel(String choice){
         String[] itemArr = userSelectedChoice(choice);
-        int count = 0;
-        int stockLeft = 0;
+        int count = ZERO;
+        int stockLeft = ZERO;
         for (String[] eachArray : vendingItems){
             if (eachArray[0].equals(itemArr[0])){
                 stockLeft =Integer.parseInt(this.vendingItems.get(count)[4])-1;
                 this.vendingItems.get(count)[4] = String.valueOf(stockLeft);
-                if (stockLeft == 0) {
+                if (stockLeft == ZERO) {
                     this.vendingItems.get(count)[2] = "Out of Stock";
                 }
             }
@@ -103,20 +108,20 @@ public class Inventory {
 
      public int getStockLeft(String choice) {
          String[] itemArr = userSelectedChoice(choice);
-         int count = 0;
+         int count = ZERO;
          for (String[] eachArray : vendingItems) {
              if (eachArray[0].equals(itemArr[0])) {
                  return Integer.parseInt(this.vendingItems.get(count)[4]);
              }
              count += 1;
          }
-         return 0;
+         return ZERO;
      }
 
      public String getMessage(String choice){
          String[] itemArr = userSelectedChoice(choice);
          String itemType = null;
-         int count = 0;
+         int count = ZERO;
          for (String[] eachArray : vendingItems) {
              if (eachArray[0].equals(itemArr[0])) {
                 itemType =this.vendingItems.get(count)[3];
@@ -145,31 +150,30 @@ public class Inventory {
         return this.isBogodo;
      }
 
-     // TODO: Possibly create class/interface
     public String getChange(){
 
         double convertedAmt = this.moneyFed.doubleValue() * 100.0;
         int convertedAmtInt = (int) convertedAmt;
 
         BigDecimal changeDue = this.moneyFed;
-        int countDollars = 0;
-        int countQuarters = 0;
-        int countDimes = 0;
-        int countNickles = 0;
-        while (convertedAmtInt >= 100){
-            convertedAmtInt -= 100;
+        int countDollars = ZERO;
+        int countQuarters = ZERO;
+        int countDimes = ZERO;
+        int countNickles = ZERO;
+        while (convertedAmtInt >= HUNDRED){
+            convertedAmtInt -= HUNDRED;
             countDollars += 1;
         }
-        while (convertedAmtInt >= 25){
-            convertedAmtInt -= 25;
+        while (convertedAmtInt >= TWENTY_FIVE){
+            convertedAmtInt -= TWENTY_FIVE;
             countQuarters += 1;
         }
-        while (convertedAmtInt >= 10){
-            convertedAmtInt -= 10;
+        while (convertedAmtInt >= TEN){
+            convertedAmtInt -= TEN;
             countDimes += 1;
         }
-        while (convertedAmtInt >= 5){
-            convertedAmtInt -= 5;
+        while (convertedAmtInt >= FIVE){
+            convertedAmtInt -= FIVE;
             countNickles += 1;
         }
 

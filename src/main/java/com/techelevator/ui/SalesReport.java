@@ -32,16 +32,18 @@ public class SalesReport {
        this.salesReport.add(itemToAdd);
     }
 
-    public void callSalesReport(){
+    public String callSalesReport(){
         System.out.println("Taste Elevator Sales Report");
         BigDecimal moneyMade = new BigDecimal("0.00").setScale(2);
+        String salesReportString = "";
         for(String[] eachItem : this.salesReport ){
-            System.out.println(eachItem[0] + " | " + eachItem[1] + " | " + eachItem[2]);
+           salesReportString += eachItem[0] + " | " + eachItem[1] + " | " + eachItem[2] + "\n";
             BigDecimal bogodoMoneyMade = new BigDecimal(eachItem[2]).multiply(new BigDecimal(eachItem[3]).subtract(BigDecimal.ONE)).setScale(2);
             BigDecimal regularMoneyMade = new BigDecimal(eachItem[1]).multiply(new BigDecimal(eachItem[3])).setScale(2);
             moneyMade = (moneyMade.add(regularMoneyMade.add(bogodoMoneyMade)).setScale(2));
         }
-        System.out.println("TOTAL SALES: " + moneyMade);
+         salesReportString += "TOTAL SALES: " + moneyMade;
+        return salesReportString;
     }
 
 }

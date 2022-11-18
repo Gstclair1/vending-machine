@@ -4,14 +4,20 @@ import com.techelevator.ui.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.sql.SQLOutput;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class VendingMachine {
     public void run() {
+        final String STARTING_INVENTORY = ",6";
+
         UserOutput userOutput = new UserOutput();
         UserInput userInput = new UserInput();
         Inventory inventory = new Inventory();
@@ -20,11 +26,28 @@ public class VendingMachine {
 
         List<String[]> vendingItems = new ArrayList<>();
 
+
+        File auditClear = new File("C:\\Users\\Student\\workspace\\java-orange-minicapstonemodule1-team7\\audit.txt");
+
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("MM/dd/yy hh:mm a");
+
+        if (auditClear.exists()){
+            try {
+            PrintWriter clear = new PrintWriter( new FileOutputStream(auditClear, true));
+                clear.print("Audit Log for Transactions Starting at: " + localDateTime.format(dateTimeFormat));
+                clear.flush();
+                clear.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
         File items = new File("catering1.csv");
         try (Scanner fineInputScanner = new Scanner(items)) {
             while (fineInputScanner.hasNextLine()) {
                 String inventoryItem = fineInputScanner.nextLine();
-                inventoryItem += ",6";
+                inventoryItem += STARTING_INVENTORY;
                 String[] displayArray = inventoryItem.split(",");
                 vendingItems.add(displayArray);
                 salesReport.addToList(displayArray);
@@ -94,7 +117,7 @@ public class VendingMachine {
                     }
                 }
                 } else if (choice.equals("sales report")) {
-                salesReport.callSalesReport();
+                System.out.println(salesReport.callSalesReport());
             } else if (choice.equals("exit")) {
                     // good bye
                     break;

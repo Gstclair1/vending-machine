@@ -24,7 +24,8 @@ public class UserOutput
     {
         System.out.println();
         System.out.println("***************************************************");
-        System.out.println("                      Home");
+        System.out.println("        Welcome to the Gianni & Amanda's "         );
+        System.out.println("                Vending Machine "                  );
         System.out.println("***************************************************");
         System.out.println();
     }

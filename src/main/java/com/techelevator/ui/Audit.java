@@ -1,6 +1,7 @@
 package com.techelevator.ui;
 
 import java.io.*;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -9,26 +10,28 @@ import java.util.Scanner;
 
 public class Audit {
     private List<String[]> auditList = new ArrayList<>();
+    private final String FORMATTING_24 = "%-24s";
 
     DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(String.format("MM/dd/yyyy hh:mm:ss a \t"));
 
     public String getTypeOfTransaction(String type){
         if (type.equalsIgnoreCase("money fed")){
-            return String.format("MONEY FED: \t");
+            return String.format(FORMATTING_24, "MONEY FED: ");
         } else if (type.equalsIgnoreCase("change given")){
-            return String.format("CHANGE GIVEN: \t");
+            return String.format(FORMATTING_24, "CHANGE GIVEN: ");
         } else {
-            return type;
+            return String.format(FORMATTING_24, type);
         }
     }
 
-
-
     public void addToAuditList(String transactionType, String moneyInserted, String moneyEnd, String selectedItem) {
+        DecimalFormat formatter = new DecimalFormat("####, ####");
         String type = this.getTypeOfTransaction(transactionType);
         LocalDateTime dateTime = LocalDateTime.now();
         String dateTimeFormat = dateTime.format(dateTimeFormatter);
-        String[] auditItem = new String[]{dateTimeFormat, type, selectedItem, moneyInserted, moneyEnd};
+
+        String[] auditItem = new String[]{dateTimeFormat, type, String.format("%-4s" , selectedItem.toUpperCase()), String.format("$" + moneyInserted, formatter.format(2)), String.format("\t" + "$" + moneyEnd, formatter.format(2))};
+
         File audit = new File("C:\\Users\\Student\\workspace\\java-orange-minicapstonemodule1-team7\\audit.txt");
         if (!audit.exists()) {
             try{
@@ -40,7 +43,6 @@ public class Audit {
         try {
             PrintWriter printWriter = new PrintWriter( new FileOutputStream(audit, true));
             for (String eachItem : auditItem) {
-                System.out.println(eachItem);
                 printWriter.print(eachItem);
             }
             printWriter.print("\n");
