@@ -7,3 +7,83 @@ Audit Log for Transactions Starting at: 11/18/22 02:51 PMAudit Log for Transacti
 Audit Log for Transactions Starting at: 11/18/22 03:21 PM
 Audit Log for Transactions Starting at: 11/18/22 03:21 PM
 
+Audit Log for Transactions Starting at: 11/23/22 01:14 PM
+
+11/23/2022 01:14:16 PM 	MONEY FED:                  $10.00	$10.00
+11/23/2022 01:14:20 PM 	CHANGE GIVEN:               $10.00	$0.00
+Audit Log for Transactions Starting at: 11/23/22 01:21 PM
+
+11/23/2022 01:22:11 PM 	MONEY FED:                  $5.00	$5.00
+11/23/2022 01:22:16 PM 	Papsi                   B2  $5.00	$1.55
+11/23/2022 01:22:34 PM 	U-Chews                 A1  $1.55	$0.90
+11/23/2022 01:22:41 PM 	CHANGE GIVEN:               $1.55	$0.00
+Audit Log for Transactions Starting at: 11/23/22 01:30 PM
+
+11/23/2022 01:30:12 PM 	MONEY FED:                  $5.00	$5.00
+11/23/2022 01:30:17 PM 	U-Chews                 A1  $5.00	$3.35
+11/23/2022 01:30:32 PM 	Papsi                   B2  $3.35	$0.90
+11/23/2022 01:30:37 PM 	CHANGE GIVEN:               $3.35	$0.00
+Audit Log for Transactions Starting at: 11/23/22 01:32 PM
+
+11/23/2022 01:32:38 PM 	MONEY FED:                  $10.00	$10.00
+11/23/2022 01:33:45 PM 	U-Chews                 A1  $10.00	$8.35
+11/23/2022 01:37:49 PM 	U-Chews                 A1  $8.35	$7.70
+Audit Log for Transactions Starting at: 11/23/22 01:39 PM
+
+11/23/2022 01:39:11 PM 	MONEY FED:                  $10.00	$10.00
+11/23/2022 01:39:14 PM 	U-Chews                 A1  $10.00	$8.35
+11/23/2022 01:39:21 PM 	U-Chews                 A1  $8.35	$7.70
+11/23/2022 01:39:24 PM 	CHANGE GIVEN:               $7.70	$0.00
+11/23/2022 01:39:39 PM 	MONEY FED:                  $10.00	$11.00
+11/23/2022 01:39:45 PM 	Stackers                A2  $11.00	$8.35
+11/23/2022 01:39:50 PM 	Singlemint Gum          C4  $8.35	$7.00
+Audit Log for Transactions Starting at: 11/23/22 01:40 PM
+
+11/23/2022 01:40:15 PM 	MONEY FED:                  $5.00	$5.00
+Audit Log for Transactions Starting at: 11/23/22 01:40 PM
+
+11/23/2022 01:40:51 PM 	MONEY FED:                  $5.00	$5.00
+11/23/2022 01:40:58 PM 	Snykkers                C1  $5.00	$0.75
+11/23/2022 01:41:07 PM 	U-Chews                 A1  $0.75	$0.10
+11/23/2022 01:41:25 PM 	CHANGE GIVEN:               $0.75	$0.00
+Audit Log for Transactions Starting at: 11/23/22 01:50 PM
+
+11/23/2022 01:50:14 PM 	MONEY FED:                  $5.00	$5.00
+11/23/2022 01:50:18 PM 	U-Chews                 A1  $5.00	$3.35
+11/23/2022 01:50:28 PM 	U-Chews                 A1  $3.35	$2.70
+11/23/2022 01:50:35 PM 	CHANGE GIVEN:               $2.70	$0.00
+11/23/2022 01:50:41 PM 	MONEY FED:                  $5.00	$5.00
+11/23/2022 01:50:46 PM 	Snykkers                C1  $5.00	$0.75
+11/23/2022 01:50:59 PM 	U-Chews                 A1  $0.75	$0.10
+Audit Log for Transactions Starting at: 11/23/22 02:01 PM
+
+Audit Log for Transactions Starting at: 11/23/22 02:02 PM
+
+11/23/2022 02:03:01 PM 	MONEY FED:                  $5.00	$5.00
+11/23/2022 02:03:05 PM 	Snykkers                C1  $5.00	$0.75
+11/23/2022 02:03:10 PM 	U-Chews                 A1  $0.75	$0.10
+11/23/2022 02:03:12 PM 	CHANGE GIVEN:               $0.10	$0.00
+Audit Log for Transactions Starting at: 11/23/22 02:07 PM
+
+11/23/2022 02:07:23 PM 	MONEY FED:                  $20.00	$20.00
+11/23/2022 02:07:27 PM 	U-Chews                 A1  $20.00	$18.35
+Audit Log for Transactions Starting at: 11/23/22 02:07 PM
+
+11/23/2022 02:07:40 PM 	MONEY FED:                  $20.00	$20.00
+11/23/2022 02:07:43 PM 	U-Chews                 A1  $20.00	$18.35
+11/23/2022 02:07:46 PM 	U-Chews                 A1  $18.35	$17.70
+11/23/2022 02:07:48 PM 	U-Chews                 A1  $17.70	$16.05
+11/23/2022 02:07:50 PM 	U-Chews                 A1  $16.05	$15.40
+11/23/2022 02:07:54 PM 	U-Chews                 A1  $15.40	$13.75
+11/23/2022 02:07:58 PM 	U-Chews                 A1  $13.75	$13.10
+11/23/2022 02:08:07 PM 	CHANGE GIVEN:               $13.10	$0.00
+Audit Log for Transactions Starting at: 11/23/22 02:15 PM
+
+11/23/2022 02:15:37 PM 	MONEY FED:                  $10.00	$10.00
+11/23/2022 02:15:41 PM 	Popcorn                 D3  $10.00	$8.25
+11/23/2022 02:15:46 PM 	Moonpie                 C3  $8.25	$6.30
+11/23/2022 02:15:52 PM 	7Down                   B3  $6.30	$3.05
+11/23/2022 02:15:54 PM 	CHANGE GIVEN:               $3.05	$0.00
+Audit Log for Transactions Starting at: 11/23/22 02:20 PM
+
+11/23/2022 02:20:38 PM 	MONEY FED:                  $1.00	$1.00

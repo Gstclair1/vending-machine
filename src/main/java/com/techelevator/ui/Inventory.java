@@ -2,9 +2,12 @@ package com.techelevator.ui;
 
 import com.techelevator.application.VendingMachine;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Inventory {
     private List<String[]> vendingItems = new ArrayList<>();
@@ -15,6 +18,27 @@ public class Inventory {
     private final int TEN = 10;
     private final int TWENTY_FIVE = 25;
     private final int HUNDRED = 100;
+    final String STARTING_INVENTORY = ",6";
+
+
+    public SalesReport Inventory(SalesReport salesReport){
+        List<String[]> vendingItemsList = new ArrayList<>();
+        File items = new File("catering1.csv");
+        try (Scanner fineInputScanner = new Scanner(items)) {
+            while (fineInputScanner.hasNextLine()) {
+                String inventoryItem = fineInputScanner.nextLine();
+                inventoryItem += STARTING_INVENTORY;
+                String[] displayArray = inventoryItem.split(",");
+                vendingItemsList.add(displayArray);
+                salesReport.addToList(displayArray);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        this.setVendingItems(vendingItemsList);
+        return salesReport;
+    }
 
 
     public List<String[]> getVendingItems() {
@@ -35,15 +59,9 @@ public class Inventory {
     }
 
     public void subtractMoney(BigDecimal moneyDue){
-        if (isBogodo) {
             if (moneyDue.compareTo(this.moneyFed) != 1) {
                 this.moneyFed = this.moneyFed.subtract(moneyDue);
             }
-        } else {
-            if (moneyDue.compareTo(this.moneyFed) != 1) {
-                this.moneyFed = this.moneyFed.subtract(moneyDue.subtract(BigDecimal.ONE));
-            }
-        }
     }
 
     public void setVendingItems(List<String[]> unorderedItems) {
@@ -61,6 +79,7 @@ public class Inventory {
             }
         }
     }
+
 
     public String displayVending() {
         String vendingDisplay = "";
@@ -179,6 +198,16 @@ public class Inventory {
 
         return "$" + changeDue + " is equal to " + countDollars + " dollars, " + countQuarters + " quarters, " + countDimes + " dimes, and " + countNickles + " nickels.";
 
+    }
+
+    public BigDecimal checkItemCost(String[] userSelectedVendingItem){
+        BigDecimal itemCost;
+        if (isBogodo){
+            itemCost = new BigDecimal(userSelectedVendingItem[2]).subtract(BigDecimal.ONE);
+        } else {
+            itemCost = new BigDecimal(userSelectedVendingItem[2]);
+        }
+        return itemCost;
     }
 
 

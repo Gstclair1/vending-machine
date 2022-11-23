@@ -90,7 +90,7 @@ public class UserInput {
             return moneyFed;
         } else {
             System.out.println("Please enter a valid bill");
-            this.insertedMoneyChoice();
+            moneyFed = this.insertedMoneyChoice();
             return moneyFed;
         }
     }

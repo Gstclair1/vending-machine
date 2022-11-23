@@ -53,4 +53,20 @@ public class Audit {
             System.out.println("File not found");
         }
     }
+
+    public void setUpAudit(){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("MM/dd/yy hh:mm a");
+        File auditClear = new File("audit.txt");
+        if (auditClear.exists()){
+            try {
+                PrintWriter clear = new PrintWriter( new FileOutputStream(auditClear, true));
+                clear.println("Audit Log for Transactions Starting at: " + localDateTime.format(dateTimeFormat) + "\n");
+                clear.flush();
+                clear.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
